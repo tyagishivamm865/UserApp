@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/visibleCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="50dp"
+        app:cardCornerRadius="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+    <ImageView
+        android:id="@+id/iconIV"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="5dp"
+        android:src="@drawable/ic_launcher_background"
+        android:background="@android:color/darker_gray"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="90dp">
+
+    <TextView
+        android:id="@+id/titleTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="First Name : "
+        android:textSize="14sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/fnametextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Shivam"
+        android:textColor="#296dc0"/>
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:paddingLeft="90dp">
+
+
+            <TextView
+                android:id="@+id/lastNameTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last Name : "
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/lnametextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Tyagi"
+                android:textColor="#296dc0"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="40dp"
+            android:paddingLeft="90dp">
+
+
+            <TextView
+                android:id="@+id/maidenNameTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Maiden Name : "
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/mnametextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Rajput"
+                android:textColor="#296dc0"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="60dp"
+            android:paddingLeft="90dp">
+
+
+            <TextView
+                android:id="@+id/ageTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Age : "
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/agetextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 24"
+                android:textColor="#296dc0"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/expandedLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="50dp"
+        app:cardCornerRadius="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="0dp"
+            android:paddingLeft="0dp">
+
+
+            <TextView
+                android:id="@+id/genderTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gender : "
+                android:paddingLeft="5dp"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/gendertextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" male"
+                android:textColor="#296dc0"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:paddingLeft="0dp">
+
+
+            <TextView
+                android:id="@+id/birthDateTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date Of Birth : "
+                android:paddingLeft="5dp"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/birthtextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 25-04-2000"
+                android:textColor="#296dc0"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="40dp"
+            android:paddingLeft="0dp">
+
+
+            <TextView
+                android:id="@+id/emailTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email : "
+                android:paddingLeft="5dp"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/mailtextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" shivam@gmail.com"
+                android:textColor="#296dc0"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="60dp"
+            android:paddingLeft="0dp">
+
+
+            <TextView
+                android:id="@+id/phoneTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone Number : "
+                android:paddingLeft="5dp"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/phonetextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 9999999999"
+                android:textColor="#296dc0"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="80dp"
+            android:paddingLeft="0dp">
+
+
+            <TextView
+                android:id="@+id/universityTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="University : "
+                android:paddingLeft="5dp"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/universitytextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" AKTU"
+                android:textColor="#296dc0"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="100dp"
+            android:paddingLeft="0dp">
+
+
+            <TextView
+                android:id="@+id/domainTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Domain : "
+                android:paddingLeft="5dp"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/doamintextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" android"
+                android:textColor="#296dc0"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="120dp"
+            android:paddingLeft="0dp">
+
+
+            <TextView
+                android:id="@+id/addressTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address : "
+                android:paddingLeft="5dp"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/addresstextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" xyz"
+                android:textColor="#296dc0"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="140dp"
+            android:paddingLeft="0dp">
+
+
+            <TextView
+                android:id="@+id/ssnTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SSN : "
+                android:paddingLeft="5dp"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/ssntextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" ssn"
+                android:textColor="#296dc0"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="160dp"
+            android:paddingLeft="0dp">
+
+
+            <TextView
+                android:id="@+id/usernameTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User Name : "
+                android:paddingLeft="5dp"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/unameView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" user"
+                android:textColor="#296dc0"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="180dp"
+            android:paddingLeft="0dp">
+
+
+            <TextView
+                android:id="@+id/passwordTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Password : "
+                android:paddingLeft="5dp"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/passwordtextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" xyz@123"
+                android:textColor="#296dc0"/>
+
+        </LinearLayout>
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+    <View
+        android:id="@+id/underLine"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="@color/white"/>
+    
+
+</LinearLayout>
