@@ -11,10 +11,10 @@ import com.example.dummy_app.model.User
 interface UserDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(user: User):Long
+    suspend fun insert(user: List<User>)
 
     @Query("Select * from usertable")
-    fun getAllUsersInfo(): LiveData<List<User>>
+    fun getAllUsersInfo(): List<User>
 
 
 
