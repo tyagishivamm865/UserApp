@@ -13,9 +13,7 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(user: List<User>)
 
-    @Query("Select * from usertable")
+    @Query("SELECT * FROM usertable")
     fun getAllUsersInfo(): List<User>
-
-
 
 }
