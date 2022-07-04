@@ -16,16 +16,18 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MyViewModel @Inject constructor(@ApplicationContext context: Context) : ViewModel() {
-        val connected = MutableLiveData<Boolean>()
+    val connected = MutableLiveData<Boolean>()
 
-        init {
-            val manager =
-                context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-            val networkRequest = NetworkRequest.Builder()
-                .addTransportType(NetworkCapabilities.TRANSPORT_CELLULAR)
-                .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
-                .build()
-            manager.registerNetworkCallback(networkRequest, object : ConnectivityManager.NetworkCallback() {
+    init {
+        val manager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val networkRequest = NetworkRequest.Builder()
+            .addTransportType(NetworkCapabilities.TRANSPORT_CELLULAR)
+            .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
+            .build()
+        manager.registerNetworkCallback(
+            networkRequest,
+            object : ConnectivityManager.NetworkCallback() {
                 override fun onAvailable(network: Network) {
                     connected.postValue(true)
                 }
@@ -38,6 +40,6 @@ class MyViewModel @Inject constructor(@ApplicationContext context: Context) : Vi
                     connected.postValue(false)
                 }
             })
-            connected.postValue(manager.isDefaultNetworkActive.not())
-        }
+        connected.postValue(manager.isDefaultNetworkActive.not())
     }
+}

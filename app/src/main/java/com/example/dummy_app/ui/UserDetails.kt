@@ -30,7 +30,7 @@ import kotlinx.coroutines.withContext
 class UserDetails : AppCompatActivity() {
     val viewModel: UserDetailsViewModel by viewModels()
     lateinit var userAdapter: UserAdapter
-     val myviewModel: MyViewModel by viewModels()
+    val myviewModel: MyViewModel by viewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,46 +41,43 @@ class UserDetails : AppCompatActivity() {
         Log.d("loading1", "Loading heavily")
 
 
-myviewModel.connected.observe(this,{
-    Log.d("user","${it}")
-    if(it.not()) {
-        loadUserDatabaseIfAvailable()
-    }
-    else{
-        Toast.makeText(this,"Network Connection",Toast.LENGTH_SHORT).show()
-        Log.d("loaduser", "Loading")
-viewModel.getUsers()
-        viewModel.userData.observe(this, Observer { response ->
-            when (response) {
-                is Resource.Success -> {
+        myviewModel.connected.observe(this, {
+            Log.d("user", "${it}")
+            if (it.not()) {
+                loadUserDatabaseIfAvailable()
+            } else {
+                Toast.makeText(this, "Network Connection", Toast.LENGTH_SHORT).show()
+                Log.d("loaduser", "Loading")
+                viewModel.getUsers()
+                viewModel.userData.observe(this, Observer { response ->
+                    when (response) {
+                        is Resource.Success -> {
 //                    hideProgressBar()
-                    response.data?.let { userResponse ->
+                            response.data?.let { userResponse ->
 
-                        viewModel.saveUser(userResponse.users)
-                        userAdapter = UserAdapter(this, userResponse.users)
-                        recyclerview.adapter = userAdapter
-                        recyclerview.layoutManager = LinearLayoutManager(this)
-                    }
-                }
-                is Resource.Error -> {
+                                viewModel.saveUser(userResponse.users)
+                                userAdapter = UserAdapter(this, userResponse.users)
+                                recyclerview.adapter = userAdapter
+                                recyclerview.layoutManager = LinearLayoutManager(this)
+                            }
+                        }
+                        is Resource.Error -> {
 //                    hideProgressBar()
-                    response.message?.let {
-                        Log.e("usermessage", "An error occured:$it")
-                    }
-                }
-                is Resource.Loading -> {
+                            response.message?.let {
+                                Log.e("usermessage", "An error occured:$it")
+                            }
+                        }
+                        is Resource.Loading -> {
 //                    showProgressBar()
-                    Log.e("loading", "Loading heavily")
+                            Log.e("loading", "Loading heavily")
 
-                }
+                        }
+                    }
+
+                })
+
             }
-
         })
-
-    }
-})
-
-
 
 
     }
@@ -109,14 +106,14 @@ viewModel.getUsers()
     private fun loadUserDatabaseIfAvailable() {
         lifecycleScope.launch {
             viewModel.getUsersInfo().let {
-                if (it.isNotEmpty()){
+                if (it.isNotEmpty()) {
 
-                     userAdapter = UserAdapter(this@UserDetails, it)
-                     recyclerview.adapter = userAdapter
-                     recyclerview.layoutManager = LinearLayoutManager(this@UserDetails)
+                    userAdapter = UserAdapter(this@UserDetails, it)
+                    recyclerview.adapter = userAdapter
+                    recyclerview.layoutManager = LinearLayoutManager(this@UserDetails)
                 }
             }
         }
     }
 
-    }
+}

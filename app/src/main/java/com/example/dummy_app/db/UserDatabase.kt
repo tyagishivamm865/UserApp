@@ -12,6 +12,4 @@ import com.example.dummy_app.model.User
 abstract class UserDatabase : RoomDatabase() {
     abstract fun getUserDao(): UserDao
 
-
-
 }

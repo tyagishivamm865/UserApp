@@ -16,11 +16,11 @@ class UserRepository @Inject constructor(val database: UserDatabase) {
 
 
     @WorkerThread
-    suspend fun getUsersInfo(): List<User>{
+    suspend fun getUsersInfo(): List<User> {
         return database.getUserDao().getAllUsersInfo()
     }
 
-    suspend fun saveUserInfo(user:List<User>) =
+    suspend fun saveUserInfo(user: List<User>) =
         database.getUserDao().insert(user)
 
 

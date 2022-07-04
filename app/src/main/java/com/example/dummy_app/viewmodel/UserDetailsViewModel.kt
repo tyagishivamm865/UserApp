@@ -33,13 +33,11 @@ class UserDetailsViewModel @Inject constructor(
     }
 
 
-    suspend fun getUsersInfo(): List<User>{
-        return withContext(Dispatchers.IO){
+    suspend fun getUsersInfo(): List<User> {
+        return withContext(Dispatchers.IO) {
             return@withContext userRepository.getUsersInfo()
         }
     }
-
-
 
 
     fun saveUser(user: List<User>) = viewModelScope.launch {
@@ -47,19 +45,17 @@ class UserDetailsViewModel @Inject constructor(
     }
 
 
-    }
+}
 
-    private  fun handleUserResponse(response: Response<UserResponse>): Resource<UserResponse> {
-        if (response.isSuccessful) {
-            response.body()?.let { resultResponse ->
-                return Resource.Success(resultResponse)
-            }
+private fun handleUserResponse(response: Response<UserResponse>): Resource<UserResponse> {
+    if (response.isSuccessful) {
+        response.body()?.let { resultResponse ->
+            return Resource.Success(resultResponse)
         }
-        return Resource.Error(response.message())
-
     }
+    return Resource.Error(response.message())
 
-
+}
 
 
 //if(it!=null)
