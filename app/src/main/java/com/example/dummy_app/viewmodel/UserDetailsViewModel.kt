@@ -9,10 +9,13 @@ import com.example.dummy_app.model.User
 import com.example.dummy_app.model.UserResponse
 import com.example.dummy_app.repository.UserRepository
 import com.example.dummy_app.util.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.*
 import retrofit2.Response
+import javax.inject.Inject
 
-class UserDetailsViewModel(
+@HiltViewModel
+class UserDetailsViewModel @Inject constructor(
     val userRepository: UserRepository
 ) : ViewModel() {
     val userData: MutableLiveData<Resource<UserResponse>> = MutableLiveData()

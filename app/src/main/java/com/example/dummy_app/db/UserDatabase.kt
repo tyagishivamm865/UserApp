@@ -12,20 +12,6 @@ import com.example.dummy_app.model.User
 abstract class UserDatabase : RoomDatabase() {
     abstract fun getUserDao(): UserDao
 
-    companion object {
-        @Volatile
-        private var instance: UserDatabase? = null
-        private val LOCK = Any()
 
-        operator fun invoke(context: Context) = instance ?: synchronized(LOCK) {
-            instance ?: createDatabase(context).also { instance = it }
-        }
-
-        fun createDatabase(context: Context) =
-            Room.databaseBuilder(
-                context.applicationContext, UserDatabase::class.java,
-                "user_db.db"
-            ).build()
-    }
 
 }

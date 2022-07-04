@@ -5,8 +5,11 @@ import androidx.room.Database
 import com.example.dummy_app.api.RetrofitInstance
 import com.example.dummy_app.db.UserDatabase
 import com.example.dummy_app.model.User
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class UserRepository(val database: UserDatabase) {
+@Singleton
+class UserRepository @Inject constructor(val database: UserDatabase) {
 
     suspend fun getUsers() =
         RetrofitInstance.api.getUsers()

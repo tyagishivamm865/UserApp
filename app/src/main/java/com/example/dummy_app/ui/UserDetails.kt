@@ -7,6 +7,7 @@ import android.net.NetworkRequest
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -17,19 +18,19 @@ import com.example.dummy_app.adapters.UserAdapter
 import com.example.dummy_app.db.UserDatabase
 import com.example.dummy_app.repository.UserRepository
 import com.example.dummy_app.util.Resource
-import com.example.dummy_app.viewmodel.MyUserDetailsViewModelFactory
 import com.example.dummy_app.viewmodel.MyViewModel
 import com.example.dummy_app.viewmodel.UserDetailsViewModel
-import com.example.dummy_app.viewmodel.UserDetailsViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_user_details.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+@AndroidEntryPoint
 class UserDetails : AppCompatActivity() {
-    lateinit var viewModel: UserDetailsViewModel
+    val viewModel: UserDetailsViewModel by viewModels()
     lateinit var userAdapter: UserAdapter
-    lateinit var myviewModel: MyViewModel
+     val myviewModel: MyViewModel by viewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,10 +40,6 @@ class UserDetails : AppCompatActivity() {
 
         Log.d("loading1", "Loading heavily")
 
-        val userrepository = UserRepository(UserDatabase(this))
-        val viewModelProviderFactory = UserDetailsViewModelFactory(userrepository)
-        viewModel = ViewModelProvider(this,viewModelProviderFactory).get(UserDetailsViewModel::class.java)
-        myviewModel = ViewModelProvider(this,MyUserDetailsViewModelFactory(this)).get(MyViewModel::class.java)
 
 myviewModel.connected.observe(this,{
     Log.d("user","${it}")
@@ -110,14 +107,13 @@ viewModel.getUsers()
 //    }
 
     private fun loadUserDatabaseIfAvailable() {
-        lifecycleScope.launch(Dispatchers.IO) {
+        lifecycleScope.launch {
             viewModel.getUsersInfo().let {
                 if (it.isNotEmpty()){
-                 withContext(Dispatchers.Main){
+
                      userAdapter = UserAdapter(this@UserDetails, it)
                      recyclerview.adapter = userAdapter
                      recyclerview.layoutManager = LinearLayoutManager(this@UserDetails)
-                 }
                 }
             }
         }
